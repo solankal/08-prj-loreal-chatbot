@@ -5,12 +5,22 @@
   padding: 0;
 }
 
+/* —— L'Oréal Brand Colors —— */
+:root {
+  --loreal-red: #E60012;
+  --loreal-black: #000000;
+  --loreal-white: #FFFFFF;
+  --loreal-gray: #F5F5F5;
+  --loreal-dark-gray: #333333;
+}
+
 /* —— body + fonts —— */
 body {
-  font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  color: #333;
+  font-family: "Poppins", Arial, sans-serif;
+  color: var(--loreal-dark-gray);
   display: flex;
   justify-content: center;
+  background: var(--loreal-white);
 }
 
 .page-wrapper {
@@ -21,13 +31,36 @@ body {
 /* header */
 .site-header {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 40px;
+  border-bottom: 3px solid var(--loreal-red);
+  padding-bottom: 30px;
+  margin-bottom: 10px;
+}
+
+/* L'Oréal logo styling */
+.loreal-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--loreal-red);
+  margin-bottom: 12px;
+  letter-spacing: 1px;
 }
 
 .site-title {
-  font-size: 22px;
-  font-weight: 500;
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  font-weight: 700;
   margin-bottom: 10px;
+  color: var(--loreal-black);
+}
+
+.site-tagline {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--loreal-dark-gray);
+  font-style: italic;
+  margin-bottom: 5px;
 }
 
 /* chat window */
@@ -35,29 +68,57 @@ body {
   margin: 40px 0;
 }
 
+/* Latest question display */
+.latest-question {
+  background: var(--loreal-red);
+  color: var(--loreal-white);
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  min-height: 20px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.latest-question:empty {
+  display: none;
+}
+
 .chat-window {
   height: 360px;
-  border: 1px solid #000;
+  border: 2px solid var(--loreal-red);
   padding: 20px;
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.6;
   overflow-y: auto;
-  background: #fafafa;
+  background: var(--loreal-gray);
   white-space: pre-line;
+  border-radius: 4px;
 }
 
 /* messages */
 .msg {
-  margin-bottom: 14px;
-  line-height: 1.5;
+  margin-bottom: 16px;
+  line-height: 1.6;
+  padding: 12px;
+  border-radius: 4px;
 }
 
 .msg.user {
-  color: #000;
+  color: var(--loreal-white);
+  background: var(--loreal-red);
+  margin-left: 40px;
+  text-align: right;
 }
 
 .msg.ai {
-  color: #666666;
+  color: var(--loreal-dark-gray);
+  background: var(--loreal-white);
+  margin-right: 40px;
+  border-left: 3px solid var(--loreal-red);
+  padding-left: 16px;
 }
 
 /* input row */
@@ -69,20 +130,28 @@ body {
 
 .chat-form input {
   flex: 1;
-  padding: 12px;
-  border: 1px solid #ccc;
-  font-size: 18px;
+  padding: 14px 16px;
+  border: 2px solid var(--loreal-gray);
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.chat-form input::placeholder {
+  color: #999;
 }
 
 .chat-form input:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
+  outline: none;
+  border-color: var(--loreal-red);
+  box-shadow: 0 0 0 3px rgba(230, 0, 18, 0.1);
 }
 
 .chat-form button {
   font-size: 18px;
-  background: #000;
-  color: #fff;
+  background: var(--loreal-red);
+  color: var(--loreal-white);
   border: none;
   padding: 12px;
   width: 48px;
@@ -91,7 +160,8 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s;
+  border-radius: 4px;
 }
 
 .chat-form button .material-icons {
@@ -99,11 +169,13 @@ body {
 }
 
 .chat-form button:hover {
-  background: #666666;
+  background: var(--loreal-dark-gray);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .chat-form button:focus {
-  outline: 2px solid #000;
+  outline: 2px solid var(--loreal-red);
   outline-offset: 2px;
 }
 
@@ -125,7 +197,9 @@ body {
   margin: 60px 0 40px;
   text-align: center;
   font-size: 14px;
-  color: #666;
+  color: var(--loreal-dark-gray);
+  padding-top: 20px;
+  border-top: 1px solid var(--loreal-gray);
 }
 
 .site-footer nav {
@@ -133,11 +207,13 @@ body {
 }
 
 .site-footer a {
-  margin: 0 8px;
-  color: #000;
+  margin: 0 12px;
+  color: var(--loreal-red);
   text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
 }
 
 .site-footer a:hover {
-  color: #666666;
+  color: var(--loreal-dark-gray);
 }
